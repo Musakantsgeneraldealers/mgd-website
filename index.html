@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musakants General Dealers</title>
+
+    <style>
+        :root {
+            --green: #8DB600;
+            --light-green: #A8D129;
+            --dark-green: #587500;
+            --background: #F3F8E8;
+            --white: #FFFFFF;
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        /* HEADER */
+
+        header {
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 7%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo h2 {
+            color: var(--light-green);
+            font-size: 22px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--light-green);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        /* HOME */
+
+        .hero {
+            min-height: 500px;
+            background:
+                linear-gradient(rgba(40,60,0,0.65), rgba(40,60,0,0.65)),
+                url("images/logo.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 25px;
+        }
+
+        .hero a {
+            display: inline-block;
+            background: var(--green);
+            color: var(--white);
+            text-decoration: none;
+            padding: 13px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .hero a:hover {
+            background: var(--light-green);
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--light-green);
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            background: var(--background);
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        /* VISION AND MISSION */
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .vm-card {
+            background: var(--background);
+            padding: 30px;
+            border-left: 5px solid var(--green);
+            border-radius: 8px;
+        }
+
+        .vm-card h3 {
+            color: var(--light-green);
+            margin-bottom: 12px;
+            font-size: 23px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #F8FAF2;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: -15px auto 35px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--green);
+        }
+
+        .service-card h3 {
+            color: var(--light-green);
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            margin-bottom: 15px;
+        }
+
+        /* AUTOMATIC SLIDESHOW FOR EACH SERVICE */
+
+        .service-gallery {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 340px;
+            margin-top: 18px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f4f6ef;
+        }
+
+        .service-gallery img {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 8px;
+        }
+
+        .service-gallery img.active {
+            display: block;
+            animation: slideshowFade 0.8s ease-in-out;
+        }
+
+        @keyframes slideshowFade {
+            from { opacity: 0.35; }
+            to { opacity: 1; }
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--background);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin: -15px auto 30px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+        }
+
+        .contact-card h3 {
+            color: var(--light-green);
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--light-green);
+            color: var(--white);
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 13px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .vision-mission,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-gallery img {
+                height: 200px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER AND NAVIGATION -->
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpg"
+                 alt="Musakants General Dealers Logo">
+
+            <h2>Musakants General Dealers</h2>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#vision">Vision & Mission</a>
+            <a href="#services">Our Services</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Musakants General Dealers</h1>
+
+            <p>
+                Your trusted supplier in educational supplies,
+                construction materials, household supplies and
+                construction services.
+            </p>
+
+            <a href="#services">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+
+    <section class="about" id="about">
+        <h2 class="section-title">About Us</h2>
+
+        <p>
+            Musakants General Dealers is a business committed to
+            providing reliable and quality products and services
+            to individuals, institutions and organisations.
+            We specialise in the supply of educational materials,
+            construction materials and household products, as well
+            as providing construction services. Our commitment is
+            to customer satisfaction, quality service delivery
+            and building lasting relationships with our customers.
+        </p>
+    </section>
+
+    <!-- VISION AND MISSION -->
+
+    <section id="vision">
+        <h2 class="section-title">Our Vision and Mission</h2>
+
+        <div class="vision-mission">
+
+            <div class="vm-card">
+                <h3>Our Vision</h3>
+
+                <p>
+                    To become a trusted and recognised general
+                    dealer known for providing quality products
+                    and reliable services to our customers.
+                </p>
+            </div>
+
+            <div class="vm-card">
+                <h3>Our Mission</h3>
+
+                <p>
+                    To provide affordable, quality products and
+                    dependable services while maintaining
+                    professionalism, integrity and customer
+                    satisfaction.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+
+    <section class="services" id="services">
+
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="services-intro">
+            We offer a variety of products and services designed
+            to meet the needs of individuals, schools, businesses
+            and organisations.
+        </p>
+
+        <div class="services-container">
+
+            <!-- SERVICE ONE -->
+
+            <div class="service-card">
+                <h3>1. Educational Materials Supply</h3>
+
+                <p>
+                    We supply educational materials including desks 
+                    and other teaching and learning
+                    materials for schools.
+                </p>
+
+                <div class="service-gallery">
+                    <img src="images/desk.jpg"
+                         alt="Educational materials">
+
+                    <img src="images/desks.jpg"
+                         alt="Stationery supplies">
+                         
+
+                    <img src="images/education.jpg"
+                         alt="Textbooks and exercise books">
+                </div>
+            </div>
+
+            <!-- SERVICE TWO -->
+
+            <div class="service-card">
+                <h3>2. Construction Materials Supply</h3>
+
+                <p>
+                    We supply construction materials such as
+                    cement, blocks, roofing sheets, timber,
+                    PVCs and other building materials
+                    required for construction projects.
+                </p>
+
+                <div class="service-gallery">
+                    <img src="images/cement.jpg"
+                         alt="Cement and building materials">
+
+                    <img src="images/ironsheet.jpg"
+                         alt="Construction blocks">
+                         <img src="images/building.jpg"
+                         alt="Construction blocks">
+                         <img src="images/iron.jpg"
+                         alt="Construction blocks">
+                         <img src="images/barrow.jpg"
+                         alt="Construction blocks">
+                         <img src="images/toiletpan.jpg"
+                         alt="Construction blocks">
+                         
+
+                    <img src="images/pvc.jpg"
+                         alt="">
+                </div>
+            </div>
+
+            <!-- SERVICE THREE -->
+
+            <div class="service-card">
+                <h3>3. Household Materials Supply</h3>
+
+                <p>
+                    We provide household products and essential
+                    supplies to meet everyday domestic needs.
+                    Our aim is to provide convenient and
+                    affordable household products.
+                </p>
+
+                <div class="service-gallery">
+                    <img src="images/fridge.jpg"
+                         alt="Household products">
+
+                    <img src="images/table.jpg"
+                         alt="Household supplies">
+                         <img src="images/divan.jpg"
+                         alt="Household supplies">
+                         <img src="images/stove.jpg"
+                         alt="Household supplies">
+                         <img src="images/matress.jpg"
+                         alt="Household supplies">
+                         <img src="images/tv.jpg"
+                         alt="Household supplies">
+
+
+                    <img src="images/kitchen.jpg"
+                         alt="Domestic materials">
+                </div>
+            </div>
+
+            <!-- SERVICE FOUR -->
+
+            <div class="service-card">
+                <h3>4. Construction Services</h3>
+
+                <p>
+                    We offer construction and related building
+                    services, supporting clients in their
+                    building and development projects with
+                    a commitment to quality and reliability.
+                </p>
+
+                <div class="service-gallery">
+                    <img src="images/block.jpg"
+                         alt="Building construction">
+
+                    <img src="images/healthpost.jpg"
+                         alt="Construction work">
+                         <img src="images/costruction.jpg"
+                         alt="Construction work">
+                         <img src="images/process.jpg"
+                         alt="Construction work">
+
+
+
+                    <img src="images/health.png"
+                         alt="Completed building project">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT US -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Contact Us</h2>
+
+        <p class="contact-intro">
+            Get in touch with Musakants General Dealers
+            for enquiries about our products and services.
+        </p>
+
+        <div class="contact-container">
+
+            <div class="contact-card">
+                <h3>Phone Number</h3>
+                <p>+260 963 261 516</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Email Address</h3>
+                <p>brianmusanvu2@email.com</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Physical Address</h3>
+                <p>Mushona-Zambezi
+                    Kalengwa-Mufumbwe.</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Business Hours</h3>
+                <p>Monday – Saturday</p>
+                <p>08:00 AM – 17:00 PM</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            &copy; 2026 Musakants General Dealers.
+            All Rights Reserved.
+        </p>
+
+        <p>Quality Products. Reliable Services.</p>
+    </footer>
+
+    <!-- AUTOMATIC SERVICE IMAGE SLIDESHOW -->
+    <script>
+        document.querySelectorAll('.service-gallery').forEach(function (gallery) {
+            const images = gallery.querySelectorAll('img');
+
+            if (images.length === 0) return;
+
+            let currentIndex = 0;
+
+            // Show the first image when the page loads.
+            images[0].classList.add('active');
+
+            // Change to the next image every 3 seconds.
+            if (images.length > 1) {
+                setInterval(function () {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add('active');
+                }, 3000);
+            }
+        });
+    </script>
+
+</body>
+</html>
