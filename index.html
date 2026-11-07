@@ -238,6 +238,52 @@
             to { opacity: 1; }
         }
 
+
+
+        /* STATIC IMAGE GALLERY UNDER SERVICES */
+        .static-gallery-section {
+            background: var(--white);
+            padding-top: 55px;
+        }
+
+        .static-gallery-intro {
+            text-align: center;
+            max-width: 760px;
+            margin: -15px auto 30px;
+        }
+
+        .static-image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .static-image-card {
+            background: #F8FAF2;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .static-image-card img {
+            display: block;
+            width: 100%;
+            height: 230px;
+            object-fit: contain;
+            object-position: center;
+            padding: 10px;
+            background: #f4f6ef;
+        }
+
+        .static-image-card h3 {
+            color: var(--dark-green);
+            font-size: 17px;
+            text-align: center;
+            padding: 12px 10px 15px;
+        }
+
         /* CONTACT */
 
         .contact {
@@ -299,6 +345,10 @@
             .services-container {
                 grid-template-columns: 1fr;
             }
+
+            .static-image-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         @media (max-width: 600px) {
@@ -317,6 +367,14 @@
 
             .service-gallery img {
                 height: 200px;
+            }
+
+            .static-image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .static-image-card img {
+                height: 220px;
             }
 
             .section-title {
@@ -343,6 +401,7 @@
             <a href="#about">About Us</a>
             <a href="#vision">Vision & Mission</a>
             <a href="#services">Our Services</a>
+            <a href="#gallery">Gallery</a>
             <a href="#contact">Contact Us</a>
         </nav>
     </header>
@@ -351,10 +410,10 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Welcome to Musakants General Dealers</h1>
+            <h1>Musakants General Dealers</h1>
 
             <p>
-                Your trusted supplier in educational supplies,
+                Your trusted supplier in educational materials,
                 construction materials, household supplies and
                 construction services.
             </p>
@@ -471,10 +530,6 @@
                          alt="Construction blocks">
                          <img src="images/iron.jpg"
                          alt="Construction blocks">
-                         <img src="images/barrow.jpg"
-                         alt="Construction blocks">
-                         <img src="images/toiletpan.jpg"
-                         alt="Construction blocks">
                          
 
                     <img src="images/pvc.jpg"
@@ -506,9 +561,6 @@
                          alt="Household supplies">
                          <img src="images/matress.jpg"
                          alt="Household supplies">
-                         <img src="images/tv.jpg"
-                         alt="Household supplies">
-
 
                     <img src="images/kitchen.jpg"
                          alt="Domestic materials">
@@ -545,6 +597,81 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+
+
+    <!-- STATIC IMAGE GALLERY UNDER SERVICES -->
+    <section class="static-gallery-section" id="gallery">
+        <h2 class="section-title">  </h2>
+        <p class="static-gallery-intro">
+            A selection of the products we supply and projects we support.
+        </p>
+
+        <div class="static-image-grid">
+            <div class="static-image-card">
+                <img src="images/co.jpg" alt="School desks and educational materials">
+                <h3></h3>
+            </div>
+
+            <div class="static-image-card">
+                <img src="images/cons.jpg" alt="Cement and construction materials">
+                <h3></h3>
+            </div>
+
+            <div class="static-image-card">
+                <img src="images/const.jpg" alt="Household appliances and supplies">
+                <h3></h3>
+            </div>
+
+            <div class="static-image-card">
+                <img src="images/constr.jpg" alt="Household furniture">
+                <h3></h3>
+            </div>
+
+            <div class="static-image-card">
+                <img src="images/construc.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/sch.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/hp.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            
+            
+<div class="static-image-card">
+                <img src="images/healthpost.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/construct.jpg" alt="Completed construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/education.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/tent.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/ww.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/tank.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
+            <div class="static-image-card">
+                <img src="images/ww2.jpg" alt="Building and construction project">
+                <h3></h3>
+            </div>
         </div>
     </section>
 
